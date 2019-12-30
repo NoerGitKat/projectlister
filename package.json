@@ -1,0 +1,22 @@
+{
+	"name": "projectlister",
+	"version": "1.0.0",
+	"description": "A project list manager",
+	"main": "app.js",
+	"scripts": {
+		"start": "lite-server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NoerGitKat/projectlister.git"
+	},
+	"author": "NoerGitKat",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/NoerGitKat/projectlister/issues"
+	},
+	"homepage": "https://github.com/NoerGitKat/projectlister#readme",
+	"dependencies": {
+		"lite-server": "^2.5.4"
+	}
+}
