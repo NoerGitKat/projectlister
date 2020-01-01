@@ -17,6 +17,8 @@
 	},
 	"homepage": "https://github.com/NoerGitKat/projectlister#readme",
 	"dependencies": {
-		"lite-server": "^2.5.4"
+		"@types/uuid": "^3.4.6",
+		"lite-server": "^2.5.4",
+		"uuid": "^3.3.3"
 	}
 }
