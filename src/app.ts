@@ -69,6 +69,7 @@ abstract class BaseClass<GenericHost extends HTMLElement, GenericEl extends HTML
 			this.el.id = newElementId;
 		}
 
+		// 3. Add content to DOM
 		this.attachContent(insertAtStart);
 	}
 
@@ -87,7 +88,7 @@ class BaseState<GenericState> {
 
 	constructor() {}
 
-	public addListener(listenerFn: Listener) {
+	public addListener(listenerFn: Listener<GenericState>) {
 		this.listeners.push(listenerFn);
 	}
 }
@@ -136,6 +137,35 @@ class ProjectState extends BaseState<Project> {
 
 const projectState = ProjectState.getInstance();
 
+// Class to render single Project item in list
+class ProjectItem extends BaseClass<HTMLUListElement, HTMLLIElement> {
+	private projectItem: Project;
+
+	get persons() {
+		if (this.projectItem.people === 1) {
+			return '1 person';
+		} else {
+			return `${this.projectItem.people} persons`;
+		}
+	}
+
+	constructor(hostId: string, project: Project) {
+		super('single-project', hostId, false, project.id);
+		this.projectItem = project;
+
+		this.configure();
+		this.renderContent();
+	}
+
+	configure() {}
+
+	renderContent() {
+		this.el.querySelector('h2')!.textContent = this.projectItem.title;
+		this.el.querySelector('h3')!.textContent = this.persons + ' assigned!';
+		this.el.querySelector('p')!.textContent = this.projectItem.desc;
+	}
+}
+
 // Class to store created projects
 class ProjectList extends BaseClass<HTMLDivElement, HTMLElement> {
 	assignedProjects: Project[];
@@ -157,9 +187,7 @@ class ProjectList extends BaseClass<HTMLDivElement, HTMLElement> {
 		listEl.innerHTML = '';
 		// 2. Add each project to the list in DOM
 		for (const project of this.assignedProjects) {
-			const listItem = document.createElement('li');
-			listItem.textContent = project.title;
-			listEl.appendChild(listItem);
+			new ProjectItem(this.el.querySelector('ul')!.id, project);
 		}
 	}
 
