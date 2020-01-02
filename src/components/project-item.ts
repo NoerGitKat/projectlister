@@ -1,7 +1,7 @@
-import { BaseClass } from './base-project.js';
-import { Draggable } from '../models/dragndrop-interfaces.js';
-import { autobindThis } from '../decorators/autobind.js';
-import { Project } from '../models/project-model.js';
+import { BaseClass } from './base-project';
+import { Draggable } from '../models/dragndrop-interfaces';
+import { autobindThis } from '../decorators/autobind';
+import { Project } from '../models/project-model';
 
 // Class to render single Project item in list
 export class ProjectItem extends BaseClass<HTMLUListElement, HTMLLIElement> implements Draggable {

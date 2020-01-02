@@ -1,7 +1,7 @@
-import { BaseClass } from './base-project.js';
-import { projectState } from '../state/project-state.js';
-import { autobindThis } from '../decorators/autobind.js';
-import { validateField, FormField } from '../utils/validation.js';
+import { BaseClass } from './base-project';
+import { projectState } from '../state/project-state';
+import { autobindThis } from '../decorators/autobind';
+import { validateField, FormField } from '../utils/validation';
 
 // Class for form to create new projects
 export class ProjectForm extends BaseClass<HTMLDivElement, HTMLFormElement> {

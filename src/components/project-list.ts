@@ -1,9 +1,9 @@
-import { BaseClass } from './base-project.js';
-import { autobindThis } from '../decorators/autobind.js';
-import { ProjectStatus, Project } from '../models/project-model.js';
-import { projectState } from '../state/project-state.js';
-import { DragTarget } from '../models/dragndrop-interfaces.js';
-import { ProjectItem } from './project-item.js';
+import { BaseClass } from './base-project';
+import { autobindThis } from '../decorators/autobind';
+import { ProjectStatus, Project } from '../models/project-model';
+import { projectState } from '../state/project-state';
+import { DragTarget } from '../models/dragndrop-interfaces';
+import { ProjectItem } from './project-item';
 
 // Class to store created projects
 export class ProjectList extends BaseClass<HTMLDivElement, HTMLElement> implements DragTarget {
